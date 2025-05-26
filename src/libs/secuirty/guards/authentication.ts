@@ -7,7 +7,7 @@ import {
   Injectable,
 } from '@nestjs/common';
 import { GqlExecutionContext } from '@nestjs/graphql';
-import { verifyToken } from '../Jwt';
+import { verifyToken, CustomJwtPayload } from '../Jwt';
 import { getUserModel } from '../../DB/models/userModels/users.model';
 import { CryptoHelper } from '../crypto.helper';
 import { Inject } from '@nestjs/common';
@@ -26,9 +26,12 @@ export class AuthGuard implements CanActivate {
     }
     try {
       const payload = await verifyToken(token, process.env.JWT_SECRET)
-      let userModel = getUserModel(payload.businessNumber)
+      if (typeof payload === 'string') {
+        throw new ForbiddenException('Invalid token payload');
+      }
+      let userModel = getUserModel(payload.businessNumber!)
       const user = await userModel.findById(
-        payload._id,
+        payload._id!,
         'email jwtSecret firstName lastName userName role isOwner phone',
         { path: 'role', select: 'name description permissions' }
       );
