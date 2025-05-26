@@ -12,8 +12,7 @@
     "start:dev": "nest start --watch",
     "start:debug": "nest start --debug --watch",
     "start:prod": "node dist/main",
-    "lint": "eslint \"{src,apps,libs}/**/*.ts\" --fix",
-    "install:all": "npm i && cd ../caducs-sida && npm i && cd ../api-gateway && npm i && cd ../tenant && npm i && cd ../api-gateway && npm i && cd ../user && npm i && cd ../api-gateway"
+    "lint": "eslint \"{src,apps,libs}/**/*.ts\" --fix"
   },
   "dependencies": {
     "@apollo/gateway": "^2.10.2",
