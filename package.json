@@ -1,0 +1,49 @@
+{
+  "name": "api-gateway",
+  "version": "1.0.0",
+  "description": "API Gateway for microservices",
+  "author": "",
+  "private": true,
+  "license": "UNLICENSED",
+  "scripts": {
+    "build": "nest build",
+    "format": "prettier --write \"src/**/*.ts\"",
+    "start": "nest start",
+    "start:dev": "nest start --watch",
+    "start:debug": "nest start --debug --watch",
+    "start:prod": "node dist/main",
+    "lint": "eslint \"{src,apps,libs}/**/*.ts\" --fix",
+    "install:all": "npm i && cd ../caducs-sida && npm i && cd ../api-gateway && npm i && cd ../tenant && npm i && cd ../api-gateway && npm i && cd ../user && npm i && cd ../api-gateway"
+  },
+  "dependencies": {
+    "@apollo/gateway": "^2.10.2",
+    "@apollo/server": "^4.12.1",
+    "@nestjs/apollo": "^13.1.0",
+    "@nestjs/common": "^11.1.1",
+    "@nestjs/config": "^4.0.2",
+    "@nestjs/core": "^11.1.1",
+    "@nestjs/graphql": "^13.1.0",
+    "@nestjs/microservices": "^11.1.1",
+    "@nestjs/platform-express": "^11.1.1",
+    "apollo-server-express": "^3.13.0",
+    "caducs-sida": "file:..",
+    "express": "^4.21.2",
+    "graphql": "^16.11.0",
+    "http-proxy-middleware": "^2.0.6",
+    "kafkajs": "^2.2.4",
+    "reflect-metadata": "^0.1.13",
+    "rxjs": "^7.8.1"
+  },
+  "devDependencies": {
+    "@nestjs/cli": "^10.0.0",
+    "@types/express": "^4.17.17",
+    "@types/node": "^20.3.1",
+    "@typescript-eslint/eslint-plugin": "^6.0.0",
+    "@typescript-eslint/parser": "^6.0.0",
+    "eslint": "^8.42.0",
+    "prettier": "^3.0.0",
+    "source-map-support": "^0.5.21",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.1.3"
+  }
+}
