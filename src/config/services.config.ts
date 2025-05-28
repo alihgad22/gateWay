@@ -8,7 +8,7 @@ export interface ServiceConfig {
 export const servicesConfig: Record<string, ServiceConfig> = {
   tenants: {
     path: 'tenants',
-    target: process.env.TENANT_SERVICE_URL || 'http://localhost:3001',
+    target: process.env.TENANT_SERVICE_URL || 'https://caducstenant-production.up.railway.app/',
     pathRewrite: { '^/tenants': '' },
     excludePaths: ['users/(.*)', 'devices/(.*)'],
   },
