@@ -33,7 +33,7 @@ export class AllExceptionsFilter implements ExceptionFilter {
           : exception instanceof Error
             ? exception.message
             : 'Internal server error Client',
-        code: exception?.response?.message,
+        code: exception?.response?.code || "Internal server error",
         details: exception?.response || undefined,
         timestamp
       };
@@ -46,8 +46,8 @@ export class AllExceptionsFilter implements ExceptionFilter {
     const errorResponse = {
       message: exception?.response?.message.reduce((acc: string, curr: string) => {
         return acc + curr;
-      }, ""),
-      code: "ALiCErrorResponse",
+      }, "") || exception?.message || "Internal server error",
+      code: exception?.response?.code || "Internal server error",
       response: exception?.response || undefined,
       timestamp
     };
